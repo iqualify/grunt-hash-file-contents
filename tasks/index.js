@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             grunt.fatal('Missing config information, requires files and target');
         }
 
-        grunt.file.expand(config.files).forEach(function(file) {
+        grunt.file.expand({ filter: 'isFile'}, config.files).forEach(function(file) {
             hash.update(grunt.file.read(file));
         });
 
